@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <title>Microfrontend Shell</title>
+    </head>
+    <body>
+    <h1>Welcome to MicroFrontends</h1>
+    <script src="http://localhost:1111/index.js"></script>
+    <script src="http://localhost:2222/index.js"></script>
+
+    <div id="micro-frontend-root"></div>
+
+    <script type="text/javascript">
+        var microFrontendsByRoute = {
+            '/': window.renderBrowse,
+            '/sell': window.renderSell,
+        };
+        var renderFunction = microFrontendsByRoute[window.location.pathname];
+        console.log('Rendering microfrontend:', renderFunction);
+        renderFunction('micro-frontend-root');
+    </script>
+    </body>
+</html>
